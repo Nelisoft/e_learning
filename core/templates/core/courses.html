@@ -1,0 +1,153 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary py-5 mb-5 page-header">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h1 class="display-3 text-white animated slideInDown">Courses</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a class="text-white" href="{% url 'home' %}">Home</a></li>
+                            <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">Courses</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+
+
+       <!-- Categories Start -->
+       <div class="container-xxl py-5 category">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Categories</h6>
+                <h1 class="mb-5">Courses Categories</h1>
+            </div>
+            <div class="row g-2">
+                <div class="col-lg-12 col-md-4">
+                    <div class="row g-3">
+                       {% for c in category %}
+                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
+                            <a class="position-relative d-block overflow-hidden" href="">
+                                <img class="img-fluid" src="{{c.img.url}}" alt="">
+                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
+                                    <h5 class="m-0">{{c.name}}</h5>
+                                    <small class="text-primary">{{c.course_set.all.count}} Courses</small>
+                                </div>
+                            </a>
+                        </div>
+                       {% endfor %}
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    <!-- Categories Start -->
+
+
+     <!-- Courses Start -->
+     <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Courses</h6>
+                <h1 class="mb-5">Popular Courses</h1>
+            </div>
+            <div class="row g-4 justify-content-center">
+                {% for c in courese %}
+                
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="{{c.featured_image.url}}" alt="">
+                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                <a href="{% url 'details' c.course_slug %}" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Enroll now</a>
+                                <a href="{% url 'register' %}" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
+                            </div>
+                        </div>
+                        <div class="text-center p-4 pb-0">
+                            {% if c.price == 0 %}
+                            <h3 class="mb-0">Free</h3>
+                            {% else %}
+                          
+                            <h3 class="mb-0">${{c.price}}</h3>
+                            {% endif %}
+                            <div class="mb-3">
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small class="fa fa-star text-primary"></small>
+                                <small>(123)</small>
+                            </div>
+                            <h5 class="mb-4">{{c.title}}</h5>
+                        </div>
+                        <div class="d-flex border-top">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>{{c.tutor}}</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>{{c.duration}}</small>
+                            <small class="flex-fill text-center py-2"><i class="fa fa-user text-primary me-2"></i>{{c.student}} Students</small>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+               
+            </div>
+        </div>
+    </div>
+    <!-- Courses End -->
+
+
+  
+    <!-- Testimonial Start -->
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="text-center">
+                <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
+                <h1 class="mb-5">Our Students Say!</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel position-relative">
+                <div class="testimonial-item text-center">
+                    <img class="border rounded-circle p-2 mx-auto mb-3" src="{% static 'core/img/testimonial-1.jpg' %}" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Sarah J.</h5>
+                    <p>Digital Marketing Student</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">’ve always struggled to balance work and learning, but Leanify has made it possible to study on my terms. The courses are flexible, allowing me to learn at my own pace while keeping up with my professional responsibilities. The materials are comprehensive, and the community discussions are a great way to share insights and learn from others. Leanify truly understands the needs of today’s learners!</p>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="border rounded-circle p-2 mx-auto mb-3" src="{% static 'core/img/testimonial-2.jpg' %}" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">John D</h5>
+                    <p>Project Management Trainee</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Leanify has completely changed the way I approach education. The interactive course design, real-time quizzes, and practical assignments helped me build confidence in my skills. I’ve gained not just theoretical knowledge, but also the hands-on experience I needed to advance in my career. The instructors are incredibly supportive, always ready to provide guidance when I need it.</p>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="border rounded-circle p-2 mx-auto mb-3" src="{% static 'core/img/testimonial-3.jpg' %}" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Maya R</h5>
+                    <p>Web Development Student</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">What I love about Leanify is the ability to study on my schedule. As a busy mom and entrepreneur, finding the time for traditional classes wasn’t feasible. But Leanify’s flexible learning format has made it so easy for me to continue my education without the pressure of rigid schedules. The content is clear and engaging, and I appreciate how easy it is to track my progress.</p>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="border rounded-circle p-2 mx-auto mb-3" src="{% static 'core/img/testimonial-4.jpg' %}" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Daniel K</h5>
+                    <p>Graphic Design Studen</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">’ve tried other online learning platforms before, but nothing compares to Leanify. The courses are so well-structured, and I love the fact that I can revisit lessons anytime. The step-by-step approach and the accessibility of instructors have really helped me gain a deeper understanding of the topics. Leanify is truly a game-changer for self-motivated learners!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+        
+{% endblock content %}

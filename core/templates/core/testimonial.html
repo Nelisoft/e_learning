@@ -1,0 +1,70 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary py-5 mb-5 page-header">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h1 class="display-3 text-white animated slideInDown">Testimonial</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">Testimonial</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+   <!-- Testimonial Start -->
+   <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="text-center">
+            <h6 class="section-title bg-white text-center text-primary px-3">Testimonial</h6>
+            <h1 class="mb-5">Our Students Say!</h1>
+        </div>
+        <div class="owl-carousel testimonial-carousel position-relative">
+            <div class="testimonial-item text-center">
+                <img class="border rounded-circle p-2 mx-auto mb-3" src="{% static 'core/img/testimonial-1.jpg' %}" style="width: 80px; height: 80px;">
+                <h5 class="mb-0">Sarah J.</h5>
+                <p>Digital Marketing Student</p>
+                <div class="testimonial-text bg-light text-center p-4">
+                <p class="mb-0">’ve always struggled to balance work and learning, but Leanify has made it possible to study on my terms. The courses are flexible, allowing me to learn at my own pace while keeping up with my professional responsibilities. The materials are comprehensive, and the community discussions are a great way to share insights and learn from others. Leanify truly understands the needs of today’s learners!</p>
+                </div>
+            </div>
+            <div class="testimonial-item text-center">
+                <img class="border rounded-circle p-2 mx-auto mb-3" src="{% static 'core/img/testimonial-2.jpg' %}" style="width: 80px; height: 80px;">
+                <h5 class="mb-0">John D</h5>
+                <p>Project Management Trainee</p>
+                <div class="testimonial-text bg-light text-center p-4">
+                <p class="mb-0">Leanify has completely changed the way I approach education. The interactive course design, real-time quizzes, and practical assignments helped me build confidence in my skills. I’ve gained not just theoretical knowledge, but also the hands-on experience I needed to advance in my career. The instructors are incredibly supportive, always ready to provide guidance when I need it.</p>
+                </div>
+            </div>
+            <div class="testimonial-item text-center">
+                <img class="border rounded-circle p-2 mx-auto mb-3" src="{% static 'core/img/testimonial-3.jpg' %}" style="width: 80px; height: 80px;">
+                <h5 class="mb-0">Maya R</h5>
+                <p>Web Development Student</p>
+                <div class="testimonial-text bg-light text-center p-4">
+                <p class="mb-0">What I love about Leanify is the ability to study on my schedule. As a busy mom and entrepreneur, finding the time for traditional classes wasn’t feasible. But Leanify’s flexible learning format has made it so easy for me to continue my education without the pressure of rigid schedules. The content is clear and engaging, and I appreciate how easy it is to track my progress.</p>
+                </div>
+            </div>
+            <div class="testimonial-item text-center">
+                <img class="border rounded-circle p-2 mx-auto mb-3" src="{% static 'core/img/testimonial-4.jpg' %}" style="width: 80px; height: 80px;">
+                <h5 class="mb-0">Daniel K</h5>
+                <p>Graphic Design Studen</p>
+                <div class="testimonial-text bg-light text-center p-4">
+                <p class="mb-0">’ve tried other online learning platforms before, but nothing compares to Leanify. The courses are so well-structured, and I love the fact that I can revisit lessons anytime. The step-by-step approach and the accessibility of instructors have really helped me gain a deeper understanding of the topics. Leanify is truly a game-changer for self-motivated learners!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial End -->
+        
+    {% endblock content %}
